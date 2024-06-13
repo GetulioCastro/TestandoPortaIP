@@ -1,0 +1,33 @@
+﻿@page "/dashboard"
+@model TestandoPortaIP.Pages.DashboardModel
+@{
+}
+
+<h2>Dashboard de Status das Portas</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>IP</th>
+            <th>Status da Porta</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var status in Model.PortStatuses)
+        {
+            <tr>
+                <td>@status.Key</td>
+                <td>
+                    @if (status.Value)
+                    {
+                        <span class="text-success">Aberta</span>
+                    }
+                    else
+                    {
+                        <span class="text-danger">Fechada</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
